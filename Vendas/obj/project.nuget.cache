@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xZyr4CGW8MmwoKBJsSMwtDfu9qEiSWbySiWfv8bf8hvqIb/opOdA8twYG9riA8gGlJdiwZeyUvhUF9lNi33hDw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yancl\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yancl\\.nuget\\packages\\npgsql\\6.0.4\\npgsql.6.0.4.nupkg.sha512",
+    "C:\\Users\\yancl\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
