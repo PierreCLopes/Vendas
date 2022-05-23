@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yancl\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj": {}
+    "C:\\Users\\Pierre\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yancl\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj": {
+    "C:\\Users\\Pierre\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yancl\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj",
+        "projectUniqueName": "C:\\Users\\Pierre\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj",
         "projectName": "Vendas",
-        "projectPath": "C:\\Users\\yancl\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj",
-        "packagesPath": "C:\\Users\\yancl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yancl\\Documents\\GitHub\\Vendas\\Vendas\\obj\\",
+        "projectPath": "C:\\Users\\Pierre\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj",
+        "packagesPath": "C:\\Users\\Pierre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pierre\\Documents\\GitHub\\Vendas\\Vendas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\yancl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pierre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -67,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
