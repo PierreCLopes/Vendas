@@ -17,6 +17,7 @@ namespace Vendas.Model
         public DateTime LogDataAlteracao { get; set; }
         public int LogUsuarioCadastro { get; set; }
         public int LogUsuarioAlteracao { get; set; }
+        public bool Logado { get; set; }
 
         public Usuario(int handle, string login, string senha, int status, DateTime statusData, DateTime logDataCadastro, DateTime logDataAlteracao, int logUsuarioCadastro, int logUsuarioAlteracao)
         {
@@ -29,6 +30,20 @@ namespace Vendas.Model
             LogDataAlteracao = logDataAlteracao;
             LogUsuarioCadastro = logUsuarioCadastro;
             LogUsuarioAlteracao = logUsuarioAlteracao;
+        }
+
+        public Usuario()
+        {
+            Handle = 0;
+            Login = "";
+            Senha = "";
+            Status = 0;
+            StatusData = DateTime.Now;
+            LogDataCadastro = DateTime.Now;
+            LogDataAlteracao = DateTime.Now;
+            LogUsuarioCadastro = 0;
+            LogUsuarioAlteracao = 0;
+            Logado = false;
         }
     }
 }

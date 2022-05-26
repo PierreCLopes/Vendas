@@ -1,15 +1,27 @@
 using Npgsql;
+using Vendas.Control;
+using Vendas.Model;
+using Vendas.View;
 
 namespace Vendas
 {
     public partial class FormPrincipal : Form
     {
-        NpgsqlConnection Conexao = null;
+        NpgsqlConnection conexao = null;
+        Usuario usuario = new Usuario();
 
-        public FormPrincipal()
+        public FormPrincipal(NpgsqlConnection conexao, Usuario usuario)
         {
+            this.conexao = conexao;
+            this.usuario = usuario;
             InitializeComponent();
-            Conexao = new NpgsqlConnection();
+
+            this.Text += " - Usuário: " + usuario.Login;
+        }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Conexao.SetFechaConexao(conexao);
         }
     }
 }

@@ -13,11 +13,8 @@ CREATE TABLE PESSOA (
                 CONSTRAINT handle_pessoa PRIMARY KEY (HANDLE)
 );
 
-
-CREATE SEQUENCE usuario_handle_seq;
-
 CREATE TABLE USUARIO (
-                HANDLE INTEGER NOT NULL DEFAULT nextval('usuario_handle_seq'),
+                HANDLE INTEGER NOT NULL,
                 LOGIN VARCHAR NOT NULL,
                 SENHA VARCHAR NOT NULL,
                 STATUS INTEGER NOT NULL,
@@ -28,9 +25,6 @@ CREATE TABLE USUARIO (
                 LOGUSUARIOALTERACAO INTEGER NOT NULL,
                 CONSTRAINT handle_usuario PRIMARY KEY (HANDLE)
 );
-
-
-ALTER SEQUENCE usuario_handle_seq OWNED BY USUARIO.HANDLE;
 
 CREATE TABLE VENDA (
                 HANDLE INTEGER NOT NULL,
