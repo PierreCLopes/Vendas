@@ -18,3 +18,5 @@ C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\obj\Debug\net6.0-windows\refint\V
 C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\obj\Debug\net6.0-windows\Vendas.pdb
 C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\obj\Debug\net6.0-windows\Vendas.genruntimeconfig.cache
 C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\obj\Debug\net6.0-windows\ref\Vendas.dll
+C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\obj\Debug\net6.0-windows\Vendas.View.FormUsuario.resources
+C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\obj\Debug\net6.0-windows\Vendas.View.FormAuditoria.resources

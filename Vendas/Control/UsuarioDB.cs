@@ -15,7 +15,10 @@ namespace Vendas.Control
             List<Usuario> Lista = new List<Usuario>();
             try
             {
-                string vQuery = "SELECT * FROM USUARIO";
+                string vQuery = "SELECT A.*, " +
+                                "       B.NOME STATUSNOME " +
+                                " FROM USUARIO A " +
+                                "INNER JOIN STATUS B ON B.HANDLE = A.STATUS ";
                 NpgsqlCommand vCommand = new NpgsqlCommand(vQuery, conexao);
                 NpgsqlDataReader DataReader = vCommand.ExecuteReader();
                 while (DataReader.Read())
@@ -24,13 +27,14 @@ namespace Vendas.Control
                     string Login = DataReader["LOGIN"].ToString();
                     string Senha = DataReader["SENHA"].ToString();
                     int Status = int.Parse(DataReader["STATUS"].ToString());
-                    DateTime StatusData = Convert.ToDateTime(DataReader["STTUSDATA"]);
+                    String StatusTraducao = DataReader["STATUSNOME"].ToString();
+                    DateTime StatusData = Convert.ToDateTime(DataReader["STATUSDATA"]);
                     DateTime LogDataCadastro = Convert.ToDateTime(DataReader["LOGDATACADASTRO"]);
                     DateTime LogDataAlteracao = Convert.ToDateTime(DataReader["LOGDATAALTERACAO"]);
                     int LogUsuarioCadastro = int.Parse(DataReader["LOGUSUARIOCADASTRO"].ToString());
                     int LogUsuarioAlteracao = int.Parse(DataReader["LOGUSUARIOALTERACAO"].ToString());
 
-                    Usuario vUsuario = new Usuario(Handle, Login, Senha, Status, StatusData, LogDataCadastro, LogDataAlteracao, LogUsuarioCadastro, LogUsuarioAlteracao);
+                    Usuario vUsuario = new Usuario(Handle, Login, Senha, Status, StatusTraducao, StatusData, LogDataCadastro, LogDataAlteracao, LogUsuarioCadastro, LogUsuarioAlteracao);
                     Lista.Add(vUsuario);
                 }
                 DataReader.Close();
@@ -43,16 +47,74 @@ namespace Vendas.Control
             return Lista;
         }
 
+        public static Usuario GetUsuarioByHandle(NpgsqlConnection conexao, int prHandle)
+        {
+            Usuario vUsuario = new Usuario();
+            try
+            {
+                string vQuery = "SELECT A.*, " +
+                                "       B.NOME STATUSNOME " +
+                                " FROM USUARIO A " +
+                                "INNER JOIN STATUS B ON B.HANDLE = A.STATUS " +
+                                "WHERE A.HANDLE = " + prHandle.ToString();
+                NpgsqlCommand vCommand = new NpgsqlCommand(vQuery, conexao);
+                NpgsqlDataReader DataReader = vCommand.ExecuteReader();
+                if (DataReader.HasRows)
+                {
+                    DataReader.Read();
+                    vUsuario.Handle = int.Parse(DataReader["HANDLE"].ToString());
+                    vUsuario.Login = DataReader["LOGIN"].ToString();
+                    vUsuario.Senha = DataReader["SENHA"].ToString();
+                    vUsuario.Status = int.Parse(DataReader["STATUS"].ToString());
+                    vUsuario.StatusTraducao = DataReader["STATUSNOME"].ToString();
+                    vUsuario.StatusData = Convert.ToDateTime(DataReader["STATUSDATA"]);
+                    vUsuario.LogDataCadastro = Convert.ToDateTime(DataReader["LOGDATACADASTRO"]);
+                    vUsuario.LogDataAlteracao = Convert.ToDateTime(DataReader["LOGDATAALTERACAO"]);
+                    vUsuario.LogUsuarioCadastro = int.Parse(DataReader["LOGUSUARIOCADASTRO"].ToString());
+                    vUsuario.LogUsuarioAlteracao = int.Parse(DataReader["LOGUSUARIOALTERACAO"].ToString());
+                }
+                DataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro de SQL: " + e.Message);
+            }
+            return vUsuario;
+        }
+
+        public static int GetHandleInsert(NpgsqlConnection conexao)
+        {
+            int retorno = 0;
+            try
+            {
+                string vQuery = "SELECT MAX(HANDLE) HANDLE " +
+                                "  FROM USUARIO  ";
+                NpgsqlCommand vCommand = new NpgsqlCommand(vQuery, conexao);
+                NpgsqlDataReader DataReader = vCommand.ExecuteReader();
+                if (DataReader.HasRows)
+                {
+                    DataReader.Read();
+                    retorno = int.Parse(DataReader["HANDLE"].ToString());
+                }
+                DataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro de SQL: " + e.Message);
+            }
+            return retorno + 1;
+        }
+
         public static bool SetInsereUsuario(Usuario usuario, NpgsqlConnection conexao)
         {
             bool retorno = false;
             try
             {
-                string vSql = "INSERTT INTO USUARIO (HANDLE, LOGIN, SENHA, STATUS, STATUSDATA, LOGDATACADASTRO, LOGADATAALTERACAO, LOGUSUARIOCADASTRO, LOGUSUARIOALTERACAO) " +
-                              "VALUES (@HANDLE, @LOGIN, @SENHA, @STATUS, @STATUSDATA, @LOGDATACADASTRO, @LOGADATAALTERACAO, @LOGUSUARIOCADASTRO, @LOGUSUARIOALTERACAO)";
+                string vSql = "INSERT INTO USUARIO (HANDLE, LOGIN, SENHA, STATUS, STATUSDATA, LOGDATACADASTRO, LOGDATAALTERACAO, LOGUSUARIOCADASTRO, LOGUSUARIOALTERACAO) " +
+                              "VALUES (@HANDLE, @LOGIN, @SENHA, @STATUS, @STATUSDATA, @LOGDATACADASTRO, @LOGDATAALTERACAO, @LOGUSUARIOCADASTRO, @LOGUSUARIOALTERACAO)";
 
                 NpgsqlCommand vCommand = new NpgsqlCommand(vSql, conexao);
-                vCommand.Parameters.Add("@HANDLE", NpgsqlTypes.NpgsqlDbType.Varchar).Value = usuario.Handle;
+                vCommand.Parameters.Add("@HANDLE", NpgsqlTypes.NpgsqlDbType.Integer).Value = usuario.Handle;
                 vCommand.Parameters.Add("@LOGIN", NpgsqlTypes.NpgsqlDbType.Varchar).Value = usuario.Login;
                 vCommand.Parameters.Add("@SENHA", NpgsqlTypes.NpgsqlDbType.Varchar).Value = usuario.Senha;
                 vCommand.Parameters.Add("@STATUS", NpgsqlTypes.NpgsqlDbType.Integer).Value = usuario.Status;
@@ -70,7 +132,7 @@ namespace Vendas.Control
             }
             catch (Exception e)
             {
-                Console.WriteLine("Erro de SQL: " + e.Message);
+                MessageBox.Show("Erro de SQL: " + e.Message);
             }
             return retorno;
         }
@@ -87,7 +149,7 @@ namespace Vendas.Control
                              "        STATUSDATA = @STATUSDATA, " +
                              "        LOGDATACADASTRO = @LOGDATACADASTRO, " +
                              "        LOGDATAALTERACAO = @LOGDATAALTERACAO, " +
-                             "        LOGUSUARIOCADASTRO = @LOGUSUARIOCADASTRO, " +
+                             "        LOGUSUARIOCADASTRO = @LOGUSUARIOCADASTRO " +
                              "  WHERE HANDLE = @HANDLE";
 
                 NpgsqlCommand vCommand = new NpgsqlCommand(vSql, conexao);
@@ -109,7 +171,7 @@ namespace Vendas.Control
             }
             catch (Exception e)
             {
-                Console.WriteLine("Erro de SQL: " + e.Message);
+                MessageBox.Show("Erro de SQL: " + e.Message);
             }
             return retorno;
         }
@@ -119,7 +181,7 @@ namespace Vendas.Control
             bool retorno = false;
             try
             {
-                string vSql = "DELETE CIDADE WHERE HANDLE = @HANDLE";
+                string vSql = "DELETE FROM USUARIO WHERE HANDLE = @HANDLE";
                 NpgsqlCommand vCommand = new NpgsqlCommand(vSql, conexao);
                 vCommand.Parameters.Add("@HANDLE", NpgsqlTypes.NpgsqlDbType.Integer).Value = handle;
                
@@ -131,7 +193,7 @@ namespace Vendas.Control
             }
             catch (Exception e)
             {
-                Console.WriteLine("Erro de SQL: " + e.Message);
+                MessageBox.Show("Erro de SQL: " + e.Message);
             }
             return retorno;
         }
@@ -141,10 +203,13 @@ namespace Vendas.Control
             Usuario usuario = new Usuario();
             try
             {
-                string vQuery = "SELECT * " +
-                                "  FROM USUARIO " +
-                                " WHERE LOGIN = @LOGIN " +
-                                "   AND SENHA = @SENHA ";
+                string vQuery = "SELECT A.*, " +
+                                "       B.NOME STATUSNOME " +
+                                "  FROM USUARIO A" +
+                                " INNER JOIN STATUS B ON B.HANDLE = A.STATUS " +
+                                " WHERE A.LOGIN = @LOGIN " +
+                                "   AND A.SENHA = @SENHA " +
+                                "   AND A.STATUS = " + Status.Ativo.ToString();
 
                 NpgsqlCommand vCommand = new NpgsqlCommand(vQuery, conexao);
                 vCommand.Parameters.Add("@LOGIN", NpgsqlTypes.NpgsqlDbType.Varchar).Value = Login;
@@ -157,6 +222,7 @@ namespace Vendas.Control
                     DataReader.Read();
                     int Handle = int.Parse(DataReader["HANDLE"].ToString());
                     int Status = int.Parse(DataReader["STATUS"].ToString());
+                    string StatusTraducao = DataReader["STATUSNOME"].ToString();
                     DateTime StatusData = Convert.ToDateTime(DataReader["STATUSDATA"]);
                     DateTime LogDataCadastro = Convert.ToDateTime(DataReader["LOGDATACADASTRO"]);
                     DateTime LogDataAlteracao = Convert.ToDateTime(DataReader["LOGDATAALTERACAO"]);
@@ -165,6 +231,7 @@ namespace Vendas.Control
 
                     usuario.Login = Login;
                     usuario.Status = Status;
+                    usuario.StatusTraducao = StatusTraducao;
                     usuario.Handle = Handle;
                     usuario.StatusData = StatusData;
                     usuario.LogDataCadastro = LogDataCadastro;
@@ -173,6 +240,7 @@ namespace Vendas.Control
                     usuario.LogUsuarioAlteracao = LogUsuarioAlteracao;
                     usuario.Logado = true;
                 }
+                DataReader.Close();
             }
             catch (Exception e)
             {
