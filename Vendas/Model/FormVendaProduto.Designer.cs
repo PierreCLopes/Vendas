@@ -28,18 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LabelObservacao = new System.Windows.Forms.Label();
             this.TextBoxObservacao = new System.Windows.Forms.RichTextBox();
-            this.LabelEndereco = new System.Windows.Forms.Label();
-            this.TextBoxEndereco = new System.Windows.Forms.TextBox();
             this.BotaoSalvar = new System.Windows.Forms.Button();
             this.BotaoExcluir = new System.Windows.Forms.Button();
-            this.LabelCnpjCpf = new System.Windows.Forms.Label();
-            this.TextBoxCnpjCpf = new System.Windows.Forms.TextBox();
-            this.LabelNome = new System.Windows.Forms.Label();
-            this.TextBoxNome = new System.Windows.Forms.TextBox();
+            this.LabelValorUnitario = new System.Windows.Forms.Label();
+            this.LabelProduto = new System.Windows.Forms.Label();
             this.LabelHandle = new System.Windows.Forms.Label();
             this.TextBoxHandle = new System.Windows.Forms.TextBox();
+            this.ComboBoxProduto = new System.Windows.Forms.ComboBox();
+            this.TextBoxValorUnitario = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
+            this.TextBoxValorTotal = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
+            this.LabelValorTotal = new System.Windows.Forms.Label();
+            this.LabelQuantidade = new System.Windows.Forms.Label();
+            this.TextBoxQuantidade = new Syncfusion.Windows.Forms.Tools.DoubleTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxValorUnitario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxValorTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelObservacao
@@ -59,22 +65,6 @@
             this.TextBoxObservacao.TabIndex = 39;
             this.TextBoxObservacao.Text = "";
             // 
-            // LabelEndereco
-            // 
-            this.LabelEndereco.AutoSize = true;
-            this.LabelEndereco.Location = new System.Drawing.Point(220, 49);
-            this.LabelEndereco.Name = "LabelEndereco";
-            this.LabelEndereco.Size = new System.Drawing.Size(56, 15);
-            this.LabelEndereco.TabIndex = 38;
-            this.LabelEndereco.Text = "Endereço";
-            // 
-            // TextBoxEndereco
-            // 
-            this.TextBoxEndereco.Location = new System.Drawing.Point(220, 67);
-            this.TextBoxEndereco.Name = "TextBoxEndereco";
-            this.TextBoxEndereco.Size = new System.Drawing.Size(232, 23);
-            this.TextBoxEndereco.TabIndex = 37;
-            // 
             // BotaoSalvar
             // 
             this.BotaoSalvar.Location = new System.Drawing.Point(377, 191);
@@ -93,37 +83,23 @@
             this.BotaoExcluir.Text = "Excluir";
             this.BotaoExcluir.UseVisualStyleBackColor = true;
             // 
-            // LabelCnpjCpf
+            // LabelValorUnitario
             // 
-            this.LabelCnpjCpf.AutoSize = true;
-            this.LabelCnpjCpf.Location = new System.Drawing.Point(12, 49);
-            this.LabelCnpjCpf.Name = "LabelCnpjCpf";
-            this.LabelCnpjCpf.Size = new System.Drawing.Size(60, 15);
-            this.LabelCnpjCpf.TabIndex = 31;
-            this.LabelCnpjCpf.Text = "CNPJ/CPF";
+            this.LabelValorUnitario.AutoSize = true;
+            this.LabelValorUnitario.Location = new System.Drawing.Point(12, 49);
+            this.LabelValorUnitario.Name = "LabelValorUnitario";
+            this.LabelValorUnitario.Size = new System.Drawing.Size(77, 15);
+            this.LabelValorUnitario.TabIndex = 31;
+            this.LabelValorUnitario.Text = "Valor unitário";
             // 
-            // TextBoxCnpjCpf
+            // LabelProduto
             // 
-            this.TextBoxCnpjCpf.Location = new System.Drawing.Point(12, 67);
-            this.TextBoxCnpjCpf.Name = "TextBoxCnpjCpf";
-            this.TextBoxCnpjCpf.Size = new System.Drawing.Size(202, 23);
-            this.TextBoxCnpjCpf.TabIndex = 30;
-            // 
-            // LabelNome
-            // 
-            this.LabelNome.AutoSize = true;
-            this.LabelNome.Location = new System.Drawing.Point(12, 4);
-            this.LabelNome.Name = "LabelNome";
-            this.LabelNome.Size = new System.Drawing.Size(40, 15);
-            this.LabelNome.TabIndex = 29;
-            this.LabelNome.Text = "Nome";
-            // 
-            // TextBoxNome
-            // 
-            this.TextBoxNome.Location = new System.Drawing.Point(12, 23);
-            this.TextBoxNome.Name = "TextBoxNome";
-            this.TextBoxNome.Size = new System.Drawing.Size(334, 23);
-            this.TextBoxNome.TabIndex = 28;
+            this.LabelProduto.AutoSize = true;
+            this.LabelProduto.Location = new System.Drawing.Point(12, 4);
+            this.LabelProduto.Name = "LabelProduto";
+            this.LabelProduto.Size = new System.Drawing.Size(50, 15);
+            this.LabelProduto.TabIndex = 29;
+            this.LabelProduto.Text = "Produto";
             // 
             // LabelHandle
             // 
@@ -143,25 +119,97 @@
             this.TextBoxHandle.TabIndex = 26;
             this.TextBoxHandle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // ComboBoxProduto
+            // 
+            this.ComboBoxProduto.FormattingEnabled = true;
+            this.ComboBoxProduto.Location = new System.Drawing.Point(12, 23);
+            this.ComboBoxProduto.Name = "ComboBoxProduto";
+            this.ComboBoxProduto.Size = new System.Drawing.Size(334, 23);
+            this.ComboBoxProduto.TabIndex = 41;
+            // 
+            // TextBoxValorUnitario
+            // 
+            this.TextBoxValorUnitario.BeforeTouchSize = new System.Drawing.Size(85, 23);
+            this.TextBoxValorUnitario.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            131072});
+            this.TextBoxValorUnitario.Location = new System.Drawing.Point(12, 67);
+            this.TextBoxValorUnitario.Name = "TextBoxValorUnitario";
+            this.TextBoxValorUnitario.Size = new System.Drawing.Size(143, 23);
+            this.TextBoxValorUnitario.TabIndex = 42;
+            this.TextBoxValorUnitario.Text = "R$ 0,00";
+            this.TextBoxValorUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TextBoxValorTotal
+            // 
+            this.TextBoxValorTotal.BeforeTouchSize = new System.Drawing.Size(85, 23);
+            this.TextBoxValorTotal.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            131072});
+            this.TextBoxValorTotal.Location = new System.Drawing.Point(309, 67);
+            this.TextBoxValorTotal.Name = "TextBoxValorTotal";
+            this.TextBoxValorTotal.Size = new System.Drawing.Size(143, 23);
+            this.TextBoxValorTotal.TabIndex = 44;
+            this.TextBoxValorTotal.Text = "R$ 0,00";
+            this.TextBoxValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // LabelValorTotal
+            // 
+            this.LabelValorTotal.AutoSize = true;
+            this.LabelValorTotal.Location = new System.Drawing.Point(311, 49);
+            this.LabelValorTotal.Name = "LabelValorTotal";
+            this.LabelValorTotal.Size = new System.Drawing.Size(60, 15);
+            this.LabelValorTotal.TabIndex = 43;
+            this.LabelValorTotal.Text = "Valor total";
+            // 
+            // LabelQuantidade
+            // 
+            this.LabelQuantidade.AutoSize = true;
+            this.LabelQuantidade.Location = new System.Drawing.Point(161, 49);
+            this.LabelQuantidade.Name = "LabelQuantidade";
+            this.LabelQuantidade.Size = new System.Drawing.Size(69, 15);
+            this.LabelQuantidade.TabIndex = 45;
+            this.LabelQuantidade.Text = "Quantidade";
+            // 
+            // TextBoxQuantidade
+            // 
+            this.TextBoxQuantidade.BeforeTouchSize = new System.Drawing.Size(85, 23);
+            this.TextBoxQuantidade.DoubleValue = 0D;
+            this.TextBoxQuantidade.Location = new System.Drawing.Point(161, 67);
+            this.TextBoxQuantidade.Name = "TextBoxQuantidade";
+            this.TextBoxQuantidade.Size = new System.Drawing.Size(143, 23);
+            this.TextBoxQuantidade.TabIndex = 46;
+            this.TextBoxQuantidade.Text = "0,00";
+            this.TextBoxQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FormVendaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 223);
+            this.Controls.Add(this.TextBoxQuantidade);
+            this.Controls.Add(this.LabelQuantidade);
+            this.Controls.Add(this.TextBoxValorTotal);
+            this.Controls.Add(this.LabelValorTotal);
+            this.Controls.Add(this.TextBoxValorUnitario);
+            this.Controls.Add(this.ComboBoxProduto);
             this.Controls.Add(this.LabelObservacao);
             this.Controls.Add(this.TextBoxObservacao);
-            this.Controls.Add(this.LabelEndereco);
-            this.Controls.Add(this.TextBoxEndereco);
             this.Controls.Add(this.BotaoSalvar);
             this.Controls.Add(this.BotaoExcluir);
-            this.Controls.Add(this.LabelCnpjCpf);
-            this.Controls.Add(this.TextBoxCnpjCpf);
-            this.Controls.Add(this.LabelNome);
-            this.Controls.Add(this.TextBoxNome);
+            this.Controls.Add(this.LabelValorUnitario);
+            this.Controls.Add(this.LabelProduto);
             this.Controls.Add(this.LabelHandle);
             this.Controls.Add(this.TextBoxHandle);
             this.Name = "FormVendaProduto";
             this.Text = "Produto da Venda";
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxValorUnitario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxValorTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxQuantidade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,15 +219,17 @@
 
         private Label LabelObservacao;
         private RichTextBox TextBoxObservacao;
-        private Label LabelEndereco;
-        private TextBox TextBoxEndereco;
         private Button BotaoSalvar;
         private Button BotaoExcluir;
-        private Label LabelCnpjCpf;
-        private TextBox TextBoxCnpjCpf;
-        private Label LabelNome;
-        private TextBox TextBoxNome;
+        private Label LabelValorUnitario;
+        private Label LabelProduto;
         private Label LabelHandle;
         private TextBox TextBoxHandle;
+        private ComboBox ComboBoxProduto;
+        private Syncfusion.Windows.Forms.Tools.CurrencyTextBox TextBoxValorUnitario;
+        private Syncfusion.Windows.Forms.Tools.CurrencyTextBox TextBoxValorTotal;
+        private Label LabelValorTotal;
+        private Label LabelQuantidade;
+        private Syncfusion.Windows.Forms.Tools.DoubleTextBox TextBoxQuantidade;
     }
 }

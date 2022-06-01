@@ -37,5 +37,16 @@ namespace Vendas.Model
             ValorTotal = 0;
             Venda = venda;
         }
+
+        public VendaProduto()
+        {
+            Handle = 0;
+            Observacao = "";
+            Produto = 0;
+            Quantidade = 0;
+            ValorUnitario = 0;
+            ValorTotal = 0;
+            Venda = 0;
+        }
     }
 }
