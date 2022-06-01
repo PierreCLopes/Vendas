@@ -263,6 +263,20 @@ namespace Vendas.View
             FormVendaProduto Form = new FormVendaProduto(conexao, vVendaProduto, usuarioLogado);
             Form.ShowDialog();
 
+
+            
+        }
+
+        private void ButtonItemAbrir_Click(object sender, EventArgs e)
+        {
+            VendaProduto vVendaProduto = (VendaProduto)DataGridViewVendaProduto.CurrentRow.DataBoundItem;
+            FormVendaProduto Form = new FormVendaProduto(conexao, vVendaProduto, usuarioLogado);
+            Form.ShowDialog();
+            Recalcular();
+        }
+
+        private void Recalcular()
+        {
             venda.Recalcular();
             VendaDB.SetAlteraVenda(venda, conexao);
             PreencherCampos();
