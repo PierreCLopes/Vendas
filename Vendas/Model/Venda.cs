@@ -11,10 +11,11 @@ namespace Vendas.Model
         public int Handle { get; set; }
         public decimal ValorLiquido { get; set; }
         public int Cliente { get; set; }
-        public DateTime Data { get; set; }
+        public string NomeCliente { get; set; }
         public int Vendedor { get; set; }
         public string NumeroPedido { get; set; }
         public int Status { get; set; }
+        public string StatusTraducao { get; set; }
         public DateTime StatusData { get; set; }
         public string Observacao { get; set; }
         public DateTime LogDataCadastro { get; set; }
@@ -22,23 +23,42 @@ namespace Vendas.Model
         public int LogUsuarioCadastro { get; set; }
         public int LogUsuarioAlteracao { get; set; }
 
-        public Venda(int handle, decimal valorLiquido, int cliente, DateTime data, int vendedor, 
-                     string numeroPedido, int status, DateTime statusData, string observacao, 
+        public Venda(int handle, decimal valorLiquido, int cliente, string nomeCliente, int vendedor, 
+                     string numeroPedido, int status, string statusTraducao, DateTime statusData, string observacao, 
                      DateTime logDataCadastro, DateTime logDataAlteracao, int logUsuarioCadastro, int logUsuarioAlteracao)
         {
             Handle = handle;
             ValorLiquido = valorLiquido;
             Cliente = cliente;
-            Data = data;
+            NomeCliente = nomeCliente;
             Vendedor = vendedor;
             NumeroPedido = numeroPedido;
             Status = status;
+            StatusTraducao = statusTraducao;
             StatusData = statusData;
             Observacao = observacao;
             LogDataCadastro = logDataCadastro;
             LogDataAlteracao = logDataAlteracao;
             LogUsuarioCadastro = logUsuarioCadastro;
             LogUsuarioAlteracao = logUsuarioAlteracao;
+        }
+
+        public Venda()
+        {
+            Handle = 0;
+            ValorLiquido = 0;
+            Cliente = 0;
+            NomeCliente = "";
+            Vendedor = 0;
+            NumeroPedido = "";
+            Status = 0;
+            StatusTraducao = "";
+            StatusData = DateTime.Now;
+            Observacao = "";
+            LogDataCadastro = DateTime.Now;
+            LogDataAlteracao = DateTime.Now;
+            LogUsuarioCadastro = 0;
+            LogUsuarioAlteracao = 0;
         }
     }
 }

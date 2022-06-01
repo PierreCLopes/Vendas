@@ -34,5 +34,19 @@ namespace Vendas.Model
             LogUsuarioCadastro = logUsuarioCadastro;
             LogUsuarioAlteracao = logUsuarioAlteracao;
         }
+
+        public Produto()
+        {
+            Handle = 0;
+            Nome = "";
+            Valor = 0;
+            CodigoAuxiliar = "";
+            Estoque = 0;
+            Descricao = "";
+            LogDataCadastro = DateTime.Now;
+            LogDataAlteracao = DateTime.Now;
+            LogUsuarioCadastro = 0;
+            LogUsuarioAlteracao = 0;
+        }
     }
 }

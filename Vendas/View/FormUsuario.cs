@@ -106,7 +106,9 @@ namespace Vendas.View
                 inserindo = !UsuarioDB.SetInsereUsuario(usuario, conexao);
 
                 PreencherCampos();
-            }    
+            }
+
+            AtualizarPermissoes();
         }
 
         private void BotaoExcluir_Click(object sender, EventArgs e)

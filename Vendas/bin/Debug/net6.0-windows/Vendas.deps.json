@@ -8,7 +8,10 @@
     ".NETCoreApp,Version=v6.0": {
       "Vendas/1.0.0": {
         "dependencies": {
-          "Npgsql": "6.0.4"
+          "Npgsql": "6.0.4",
+          "Syncfusion.Pdf.WinForms": "20.1.0.58",
+          "Syncfusion.Tools.Windows": "20.1.0.58",
+          "Syncfusion.Xamarin.SfNumericTextBox": "20.1.0.58"
         },
         "runtime": {
           "Vendas.dll": {}
@@ -25,7 +28,150 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {}
+      "Syncfusion.Compression.Base/20.1.0.58": {
+        "runtime": {
+          "lib/net5.0/Syncfusion.Compression.Base.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.Grid.Windows/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.58",
+          "Syncfusion.Shared.Base": "20.1.0.58",
+          "Syncfusion.Shared.Windows": "20.1.0.58"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Grid.Windows.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.Licensing/20.1.0.58": {
+        "runtime": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "20.1.0.58",
+            "fileVersion": "20.1.0.58"
+          }
+        }
+      },
+      "Syncfusion.Pdf.WinForms/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Compression.Base": "20.1.0.58",
+          "Syncfusion.Licensing": "20.1.0.58"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Pdf.Base.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.Shared.Base/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.58"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.Base.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.Shared.Windows/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.58",
+          "Syncfusion.Shared.Base": "20.1.0.58"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.Windows.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.SpellChecker.Base/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.58"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SpellChecker.Base.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.Tools.Base/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.58",
+          "Syncfusion.Shared.Base": "20.1.0.58"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Tools.Base.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.Tools.Windows/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Grid.Windows": "20.1.0.58",
+          "Syncfusion.Licensing": "20.1.0.58",
+          "Syncfusion.Shared.Base": "20.1.0.58",
+          "Syncfusion.Shared.Windows": "20.1.0.58",
+          "Syncfusion.SpellChecker.Base": "20.1.0.58",
+          "Syncfusion.Tools.Base": "20.1.0.58"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Tools.Windows.dll": {
+            "assemblyVersion": "20.1500.0.58",
+            "fileVersion": "20.1500.0.58"
+          }
+        }
+      },
+      "Syncfusion.Xamarin.Core/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Licensing": "20.1.0.58",
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.Core.XForms.dll": {
+            "assemblyVersion": "20.1451.0.58",
+            "fileVersion": "20.1451.0.58"
+          }
+        }
+      },
+      "Syncfusion.Xamarin.SfNumericTextBox/20.1.0.58": {
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "20.1.0.58",
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.SfNumericTextBox.XForms.dll": {
+            "assemblyVersion": "20.1451.0.58",
+            "fileVersion": "20.1451.0.58"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "Xamarin.Forms/5.0.0.2012": {
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.671"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.671"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.671"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -41,12 +187,96 @@
       "path": "npgsql/6.0.4",
       "hashPath": "npgsql.6.0.4.nupkg.sha512"
     },
+    "Syncfusion.Compression.Base/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HHsb6RmXicrGPk4s5cBZ30wXNq8OXvvn7tIqweK4fZsx/zcIRk75QeupjGMM+RmAowtYSPzISxS0f/tJiMv/8w==",
+      "path": "syncfusion.compression.base/20.1.0.58",
+      "hashPath": "syncfusion.compression.base.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Grid.Windows/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lUXZnmZfOPWcRd4xmKopdJNgiQ9LPyKlOvGMwh3nvQR1NVD4Gn5Q5dNIn0BJXEiS3CdO73BEB+wo/FfLxWkZOQ==",
+      "path": "syncfusion.grid.windows/20.1.0.58",
+      "hashPath": "syncfusion.grid.windows.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cupk6gJjwDNJfK4dl+uiVtjKpCiZ8OfjsmnS6402HDx1uREUGKH94GtUJWIUFqRsSY2Ar6rcTAo867+PSl01pA==",
+      "path": "syncfusion.licensing/20.1.0.58",
+      "hashPath": "syncfusion.licensing.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Pdf.WinForms/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XUiTx/aGvPag4W6Um8DP+dm4SPy4YumRB7VwHZHsuIOA34K+eR90/ymkWIEpigJNJJ0S+Jqem0A25vL2WP/O7A==",
+      "path": "syncfusion.pdf.winforms/20.1.0.58",
+      "hashPath": "syncfusion.pdf.winforms.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Shared.Base/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vge+W5CO2gohnF7VMfGDcVHifnnACUij4JZmFebe6/V5RiZND8XW3MDYYJcdOtzFtezSDcOUwwGmkiS5kGwcDA==",
+      "path": "syncfusion.shared.base/20.1.0.58",
+      "hashPath": "syncfusion.shared.base.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Shared.Windows/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ohoo5WuOYg/Js3JFfHicqA9TzudR90XJ473beJp1QGso79kbi4FhpgyjFiJyAvNJMpJhIGEqw30tnzgGI/8nMw==",
+      "path": "syncfusion.shared.windows/20.1.0.58",
+      "hashPath": "syncfusion.shared.windows.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.SpellChecker.Base/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TyumIP/TJ7q3U8X/yteiI6rOwBJc9bfmGC+i0LDfrzYaTL37lqaCzoU8VaOVfOvtIZfe5hIb9jiXxoIEphdjHA==",
+      "path": "syncfusion.spellchecker.base/20.1.0.58",
+      "hashPath": "syncfusion.spellchecker.base.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Tools.Base/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sePfBHbwVsI5k2Yo6cMaTfSfyySxM8y6rklbrob+TLgvo3gCqAn/OQTmFbdgSJzZ9qhQiC+lW7tNpZvgXbDvcg==",
+      "path": "syncfusion.tools.base/20.1.0.58",
+      "hashPath": "syncfusion.tools.base.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Tools.Windows/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IFOlZZbz3C3t8KNpq/7gJBPsEY78bLQu2R+ORnJBaOpFHU28L9JZ1MFtfc5j5hZzWCHqG8xGsyL6NlruK+sqlQ==",
+      "path": "syncfusion.tools.windows/20.1.0.58",
+      "hashPath": "syncfusion.tools.windows.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Xamarin.Core/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9CY3Gy0mzdMHeRXYgB8xA/EkRrMtW4sjIQSMzBYEJO1Vlga7Tj1Xv9mWiubyc3h7el9bn2oPrpQM/WOjg2qx/w==",
+      "path": "syncfusion.xamarin.core/20.1.0.58",
+      "hashPath": "syncfusion.xamarin.core.20.1.0.58.nupkg.sha512"
+    },
+    "Syncfusion.Xamarin.SfNumericTextBox/20.1.0.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fz50katB6qqcRTIxgL8o6ZfMyGJTTlMOjk+u+Ii29M/OCX0wimqkUVMkzgy3Spi03/TdlHu8mZ7ykrkGZfkEBw==",
+      "path": "syncfusion.xamarin.sfnumerictextbox/20.1.0.58",
+      "hashPath": "syncfusion.xamarin.sfnumerictextbox.20.1.0.58.nupkg.sha512"
+    },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "Xamarin.Forms/5.0.0.2012": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
+      "path": "xamarin.forms/5.0.0.2012",
+      "hashPath": "xamarin.forms.5.0.0.2012.nupkg.sha512"
     }
   }
 }

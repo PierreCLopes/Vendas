@@ -1,11 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "XLLLrAHRZH6YiV3qj4EWLYVYVBZ9+pPA3ZdarGxcCEYJRmQDbyLry4ltQb5w+A7tmggRhDrVclPHexPV0V+h3Q==",
+  "dgSpecHash": "W8ygaGoXronMCCbX36hWRyhtSCN1NXauIrC1vq3mK0LC6dMFHjGjRl3/ttZeswAhDdebhSVKbwG/D4aQu8KgZw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pierre\\Documents\\GitHub\\Vendas\\Vendas\\Vendas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pierre\\.nuget\\packages\\npgsql\\6.0.4\\npgsql.6.0.4.nupkg.sha512",
-    "C:\\Users\\Pierre\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.compression.base\\20.1.0.58\\syncfusion.compression.base.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.grid.windows\\20.1.0.58\\syncfusion.grid.windows.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.licensing\\20.1.0.58\\syncfusion.licensing.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.pdf.winforms\\20.1.0.58\\syncfusion.pdf.winforms.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.shared.base\\20.1.0.58\\syncfusion.shared.base.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.shared.windows\\20.1.0.58\\syncfusion.shared.windows.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.spellchecker.base\\20.1.0.58\\syncfusion.spellchecker.base.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.tools.base\\20.1.0.58\\syncfusion.tools.base.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.tools.windows\\20.1.0.58\\syncfusion.tools.windows.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.xamarin.core\\20.1.0.58\\syncfusion.xamarin.core.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\syncfusion.xamarin.sfnumerictextbox\\20.1.0.58\\syncfusion.xamarin.sfnumerictextbox.20.1.0.58.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Pierre\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
   "logs": []
 }

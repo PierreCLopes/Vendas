@@ -14,7 +14,7 @@ namespace Vendas.Control
             NpgsqlConnection conexao = null;
             try
             {
-                conexao = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=valeverde;Database=VENDA;");
+                conexao = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=valeverde;Database=VENDAS;");
                 conexao.Open();
             }
             catch (Exception e)
