@@ -57,15 +57,18 @@ namespace Vendas.View
             BotaoLiberar.Enabled = (venda.Status == Status.Cadastrado) ^ (venda.Status == Status.AgModificacao);
             BotaoVoltar.Enabled = (venda.Status == Status.Ativo) ^ (venda.Status == Status.Cancelado);
             BotaoSalvar.Enabled = !(venda.Status == Status.Ativo) && !(venda.Status == Status.Cancelado);
+            BotaoItemAdicionar.Enabled = BotaoSalvar.Enabled  &&  !inserindo;
 
             ComboBoxCliente.Enabled = BotaoSalvar.Enabled;
             TextBoxNumeroPedido.ReadOnly = !BotaoSalvar.Enabled;
             TextBoxObservacao.ReadOnly = !BotaoSalvar.Enabled;
-            TextBoxValor.ReadOnly = !BotaoSalvar.Enabled;
         }
 
         private void PreencherCampos()
         {
+            List<VendaProduto> lista = VendaProdutoDB.GetVendaProdutos(conexao, venda.Handle);
+            DataGridViewVendaProduto.DataSource = lista;
+
             TextBoxHandle.Text = venda.Handle.ToString();
             TextBoxValor.DecimalValue = venda.ValorLiquido;
             TextBoxObservacao.Text = venda.Observacao;
@@ -95,50 +98,44 @@ namespace Vendas.View
 
         private void BotaoSalvar_Click(object sender, EventArgs e)
         {
-            if (VerificarCampos())
+            
+            if (!inserindo)
             {
-                if (!inserindo)
-                {
-                    venda.ValorLiquido = TextBoxValor.DecimalValue;
-                    venda.NumeroPedido = TextBoxNumeroPedido.Text;
-                    venda.Observacao = TextBoxObservacao.Text;
-                    venda.LogDataAlteracao = DateTime.Now;
-                    venda.LogUsuarioAlteracao = usuarioLogado.Handle;
+                venda.ValorLiquido = TextBoxValor.DecimalValue;
+                venda.NumeroPedido = TextBoxNumeroPedido.Text;
+                venda.Observacao = TextBoxObservacao.Text;
+                venda.LogDataAlteracao = DateTime.Now;
+                venda.LogUsuarioAlteracao = usuarioLogado.Handle;
 
-                    Pessoa pessoa = (Pessoa)ComboBoxCliente.SelectedItem;
-                    venda.Cliente = pessoa.Handle;
+                Pessoa pessoa = (Pessoa)ComboBoxCliente.SelectedItem;
+                venda.Cliente = pessoa.Handle;
 
-                    VendaDB.SetAlteraVenda(venda, conexao);
+                VendaDB.SetAlteraVenda(venda, conexao);
 
-                    PreencherCampos();
-                }
-                else
-                {
-                    venda.Handle = VendaDB.GetHandleInsert(conexao);
-                    venda.ValorLiquido = TextBoxValor.DecimalValue;
-                    venda.NumeroPedido = TextBoxNumeroPedido.Text;
-                    venda.Observacao = TextBoxObservacao.Text;
-
-                    Pessoa pessoa = (Pessoa)ComboBoxCliente.SelectedItem;
-                    venda.Cliente = pessoa.Handle;
-
-                    venda.Vendedor = usuarioLogado.Handle;
-                    venda.Status = Status.Cadastrado;
-                    venda.StatusTraducao = "Cadastrado";
-                    venda.StatusData = DateTime.Now;
-                    venda.LogDataAlteracao = DateTime.Now;
-                    venda.LogUsuarioAlteracao = usuarioLogado.Handle;
-                    venda.LogDataCadastro = DateTime.Now;
-                    venda.LogUsuarioCadastro = usuarioLogado.Handle;
-
-                    inserindo = !VendaDB.SetInsereVenda(venda, conexao);
-
-                    PreencherCampos();
-                }
+                PreencherCampos();
             }
             else
             {
-                MessageBox.Show("Campo obrigatório não preenchido!");
+                venda.Handle = VendaDB.GetHandleInsert(conexao);
+                venda.ValorLiquido = TextBoxValor.DecimalValue;
+                venda.NumeroPedido = TextBoxNumeroPedido.Text;
+                venda.Observacao = TextBoxObservacao.Text;
+
+                Pessoa pessoa = (Pessoa)ComboBoxCliente.SelectedItem;
+                venda.Cliente = pessoa.Handle;
+
+                venda.Vendedor = usuarioLogado.Handle;
+                venda.Status = Status.Cadastrado;
+                venda.StatusTraducao = "Cadastrado";
+                venda.StatusData = DateTime.Now;
+                venda.LogDataAlteracao = DateTime.Now;
+                venda.LogUsuarioAlteracao = usuarioLogado.Handle;
+                venda.LogDataCadastro = DateTime.Now;
+                venda.LogUsuarioCadastro = usuarioLogado.Handle;
+
+                inserindo = !VendaDB.SetInsereVenda(venda, conexao);
+
+                PreencherCampos();
             }
 
             AtualizarPermissoes();
@@ -170,19 +167,26 @@ namespace Vendas.View
 
         private void BotaoLiberar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                        null
-                        , $"Deseja liberar a venda " + venda.Handle + "?"
-                        , "Pessoa"
-                        , MessageBoxButtons.OKCancel
-                        , MessageBoxIcon.Question
-                        );
-            if (result == DialogResult.OK)
+            if (VerificarCampos())
             {
-                venda.Liberar();
-                VendaDB.SetAlteraVenda(venda, conexao);
-                PreencherCampos();
-                AtualizarPermissoes();
+                DialogResult result = MessageBox.Show(
+                                null
+                                , $"Deseja liberar a venda " + venda.Handle + "?"
+                                , "Pessoa"
+                                , MessageBoxButtons.OKCancel
+                                , MessageBoxIcon.Question
+                                );
+                if (result == DialogResult.OK)
+                {
+                    venda.Liberar();
+                    VendaDB.SetAlteraVenda(venda, conexao);
+                    PreencherCampos();
+                    AtualizarPermissoes();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Campo obrigatório não preenchido!");
             }
         }
 
@@ -255,9 +259,11 @@ namespace Vendas.View
 
         private void ButtonItemAdicionar_Click(object sender, EventArgs e)
         {
-            VendaProduto vVendaProduto = new VendaProduto();
+            VendaProduto vVendaProduto = new VendaProduto(venda.Handle);
             FormVendaProduto Form = new FormVendaProduto(conexao, vVendaProduto, usuarioLogado);
             Form.ShowDialog();
+
+            Reacalcular();
         }
     }
 }

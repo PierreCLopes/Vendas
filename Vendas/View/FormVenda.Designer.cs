@@ -49,15 +49,15 @@
             this.TabPage = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.BotaoEntregar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ButtonItemAdicionar = new System.Windows.Forms.Button();
             this.ButtonItemAbrir = new System.Windows.Forms.Button();
+            this.BotaoItemAdicionar = new System.Windows.Forms.Button();
+            this.DataGridViewVendaProduto = new System.Windows.Forms.DataGridView();
+            this.BotaoEntregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TextBoxValor)).BeginInit();
             this.TabPage.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewVendaProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelObservacao
@@ -246,8 +246,8 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.ButtonItemAbrir);
-            this.tabPage2.Controls.Add(this.ButtonItemAdicionar);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.BotaoItemAdicionar);
+            this.tabPage2.Controls.Add(this.DataGridViewVendaProduto);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -255,37 +255,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Item";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // BotaoEntregar
-            // 
-            this.BotaoEntregar.Location = new System.Drawing.Point(173, 279);
-            this.BotaoEntregar.Name = "BotaoEntregar";
-            this.BotaoEntregar.Size = new System.Drawing.Size(75, 23);
-            this.BotaoEntregar.TabIndex = 48;
-            this.BotaoEntregar.Text = "Entregar";
-            this.BotaoEntregar.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 29);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(459, 114);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // ButtonItemAdicionar
-            // 
-            this.ButtonItemAdicionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ButtonItemAdicionar.Location = new System.Drawing.Point(390, 3);
-            this.ButtonItemAdicionar.Name = "ButtonItemAdicionar";
-            this.ButtonItemAdicionar.Size = new System.Drawing.Size(75, 23);
-            this.ButtonItemAdicionar.TabIndex = 1;
-            this.ButtonItemAdicionar.Text = "Adicionar";
-            this.ButtonItemAdicionar.UseVisualStyleBackColor = true;
-            this.ButtonItemAdicionar.Click += new System.EventHandler(this.ButtonItemAdicionar_Click);
             // 
             // ButtonItemAbrir
             // 
@@ -296,6 +265,37 @@
             this.ButtonItemAbrir.TabIndex = 2;
             this.ButtonItemAbrir.Text = "Abrir";
             this.ButtonItemAbrir.UseVisualStyleBackColor = true;
+            // 
+            // BotaoItemAdicionar
+            // 
+            this.BotaoItemAdicionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BotaoItemAdicionar.Location = new System.Drawing.Point(390, 3);
+            this.BotaoItemAdicionar.Name = "BotaoItemAdicionar";
+            this.BotaoItemAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.BotaoItemAdicionar.TabIndex = 1;
+            this.BotaoItemAdicionar.Text = "Adicionar";
+            this.BotaoItemAdicionar.UseVisualStyleBackColor = true;
+            this.BotaoItemAdicionar.Click += new System.EventHandler(this.ButtonItemAdicionar_Click);
+            // 
+            // DataGridViewVendaProduto
+            // 
+            this.DataGridViewVendaProduto.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.DataGridViewVendaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewVendaProduto.Location = new System.Drawing.Point(6, 29);
+            this.DataGridViewVendaProduto.Name = "DataGridViewVendaProduto";
+            this.DataGridViewVendaProduto.ReadOnly = true;
+            this.DataGridViewVendaProduto.RowTemplate.Height = 25;
+            this.DataGridViewVendaProduto.Size = new System.Drawing.Size(459, 114);
+            this.DataGridViewVendaProduto.TabIndex = 0;
+            // 
+            // BotaoEntregar
+            // 
+            this.BotaoEntregar.Location = new System.Drawing.Point(173, 279);
+            this.BotaoEntregar.Name = "BotaoEntregar";
+            this.BotaoEntregar.Size = new System.Drawing.Size(75, 23);
+            this.BotaoEntregar.TabIndex = 48;
+            this.BotaoEntregar.Text = "Entregar";
+            this.BotaoEntregar.UseVisualStyleBackColor = true;
             // 
             // FormVenda
             // 
@@ -328,7 +328,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewVendaProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,8 +357,8 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private Button BotaoEntregar;
-        private DataGridView dataGridView1;
+        private DataGridView DataGridViewVendaProduto;
         private Button ButtonItemAbrir;
-        private Button ButtonItemAdicionar;
+        private Button BotaoItemAdicionar;
     }
 }

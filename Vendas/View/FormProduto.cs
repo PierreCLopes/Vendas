@@ -70,7 +70,6 @@ namespace Vendas.View
             {
                 if (!inserindo)
                 {
-                    produto.Handle = PessoaDB.GetHandleInsert(conexao);
                     produto.Nome = TextBoxNome.Text;
                     produto.Valor = TextBoxValor.DecimalValue;
                     produto.Estoque = (decimal)TextBoxEstoque.DoubleValue;
@@ -85,7 +84,7 @@ namespace Vendas.View
                 }
                 else
                 {
-                    produto.Handle = PessoaDB.GetHandleInsert(conexao);
+                    produto.Handle = ProdutoDB.GetHandleInsert(conexao);
                     produto.Nome = TextBoxNome.Text;
                     produto.Valor = TextBoxValor.DecimalValue;
                     produto.Estoque = (decimal)TextBoxEstoque.DoubleValue;
@@ -130,14 +129,6 @@ namespace Vendas.View
                 {
                     MessageBox.Show("Erro, produto não excluído!");
                 }
-            }
-        }
-
-        private void TextBoxCnpjCpf_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
 

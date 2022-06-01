@@ -173,7 +173,7 @@ namespace Vendas.Control
             return retorno;
         }
 
-        public static bool SetExcluirVendaaProduto(int handle, NpgsqlConnection conexao)
+        public static bool SetExcluirVendaProduto(int handle, NpgsqlConnection conexao)
         {
             bool retorno = false;
             try

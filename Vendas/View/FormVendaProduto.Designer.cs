@@ -126,10 +126,11 @@
             this.ComboBoxProduto.Name = "ComboBoxProduto";
             this.ComboBoxProduto.Size = new System.Drawing.Size(334, 23);
             this.ComboBoxProduto.TabIndex = 41;
+            this.ComboBoxProduto.SelectedIndexChanged += new System.EventHandler(this.ComboBoxProduto_SelectedIndexChanged);
             // 
             // TextBoxValorUnitario
             // 
-            this.TextBoxValorUnitario.BeforeTouchSize = new System.Drawing.Size(85, 23);
+            this.TextBoxValorUnitario.BeforeTouchSize = new System.Drawing.Size(120, 23);
             this.TextBoxValorUnitario.DecimalValue = new decimal(new int[] {
             0,
             0,
@@ -141,10 +142,11 @@
             this.TextBoxValorUnitario.TabIndex = 42;
             this.TextBoxValorUnitario.Text = "R$ 0,00";
             this.TextBoxValorUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TextBoxValorUnitario.DecimalValueChanged += new System.EventHandler(this.TextBoxValorUnitario_DecimalValueChanged);
             // 
             // TextBoxValorTotal
             // 
-            this.TextBoxValorTotal.BeforeTouchSize = new System.Drawing.Size(85, 23);
+            this.TextBoxValorTotal.BeforeTouchSize = new System.Drawing.Size(120, 23);
             this.TextBoxValorTotal.DecimalValue = new decimal(new int[] {
             0,
             0,
@@ -156,6 +158,7 @@
             this.TextBoxValorTotal.TabIndex = 44;
             this.TextBoxValorTotal.Text = "R$ 0,00";
             this.TextBoxValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TextBoxValorTotal.DecimalValueChanged += new System.EventHandler(this.TextBoxValorTotal_DecimalValueChanged);
             // 
             // LabelValorTotal
             // 
@@ -177,7 +180,7 @@
             // 
             // TextBoxQuantidade
             // 
-            this.TextBoxQuantidade.BeforeTouchSize = new System.Drawing.Size(85, 23);
+            this.TextBoxQuantidade.BeforeTouchSize = new System.Drawing.Size(120, 23);
             this.TextBoxQuantidade.DoubleValue = 0D;
             this.TextBoxQuantidade.Location = new System.Drawing.Point(161, 67);
             this.TextBoxQuantidade.Name = "TextBoxQuantidade";
@@ -185,6 +188,7 @@
             this.TextBoxQuantidade.TabIndex = 46;
             this.TextBoxQuantidade.Text = "0,00";
             this.TextBoxQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TextBoxQuantidade.DoubleValueChanged += new System.EventHandler(this.TextBoxQuantidade_DoubleValueChanged);
             // 
             // FormVendaProduto
             // 
@@ -206,6 +210,7 @@
             this.Controls.Add(this.LabelHandle);
             this.Controls.Add(this.TextBoxHandle);
             this.Name = "FormVendaProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produto da Venda";
             ((System.ComponentModel.ISupportInitialize)(this.TextBoxValorUnitario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextBoxValorTotal)).EndInit();

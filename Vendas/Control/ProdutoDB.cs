@@ -182,7 +182,7 @@ namespace Vendas.Control
                              "        DESCRICAO = @DESCRICAO, " +
                              "        CODIGOAUXILIAR = @CODIGOAUXILIAR, " +
                              "        LOGDATACADASTRO = @LOGDATACADASTRO, " +
-                             "        LOGDATAALTERACAO = @LOGDATAALTERACAO, " +
+                             "        LOGDATAALTERACAO = @LOGDATAALTERACAO, " + 
                              "        LOGUSUARIOCADASTRO = @LOGUSUARIOCADASTRO " +
                              "  WHERE HANDLE = @HANDLE";
 

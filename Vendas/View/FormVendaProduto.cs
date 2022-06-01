@@ -20,7 +20,7 @@ namespace Vendas.Model
         bool inserindo;
 
         public FormVendaProduto(NpgsqlConnection prConexao, VendaProduto prVendaProduto, Usuario prUsuarioLogado)
-        {
+        { 
             vendaProduto = prVendaProduto;
             usuarioLogado = prUsuarioLogado;
             conexao = prConexao;
@@ -78,33 +78,27 @@ namespace Vendas.Model
             {
                 if (!inserindo)
                 {
-                    produto.Handle = PessoaDB.GetHandleInsert(conexao);
-                    produto.Nome = TextBoxNome.Text;
-                    produto.Valor = TextBoxValor.DecimalValue;
-                    produto.Estoque = (decimal)TextBoxEstoque.DoubleValue;
-                    produto.Descricao = TextBoxDescricao.Text;
-                    produto.CodigoAuxiliar = TextBoxCodigoAuxiliar.Text;
-                    produto.LogDataAlteracao = DateTime.Now;
-                    produto.LogUsuarioAlteracao = usuarioLogado.Handle;
+                    vendaProduto.ValorUnitario = TextBoxValorUnitario.DecimalValue;
+                    vendaProduto.ValorTotal = TextBoxValorTotal.DecimalValue;
+                    vendaProduto.Quantidade = (decimal)TextBoxQuantidade.DoubleValue;
+                    vendaProduto.Observacao = TextBoxObservacao.Text;
 
-                    ProdutoDB.SetAlteraProduto(produto, conexao);
+                    Produto produto = (Produto)ComboBoxProduto.SelectedItem;
+                    vendaProduto.Produto = produto.Handle;
+
+                    VendaProdutoDB.SetAlteraVendaProduto(vendaProduto, conexao);
 
                     PreencherCampos();
                 }
                 else
                 {
-                    produto.Handle = PessoaDB.GetHandleInsert(conexao);
-                    produto.Nome = TextBoxNome.Text;
-                    produto.Valor = TextBoxValor.DecimalValue;
-                    produto.Estoque = (decimal)TextBoxEstoque.DoubleValue;
-                    produto.Descricao = TextBoxDescricao.Text;
-                    produto.CodigoAuxiliar = TextBoxCodigoAuxiliar.Text;
-                    produto.LogDataAlteracao = DateTime.Now;
-                    produto.LogUsuarioAlteracao = usuarioLogado.Handle;
-                    produto.LogDataCadastro = DateTime.Now;
-                    produto.LogUsuarioCadastro = usuarioLogado.Handle;
+                    vendaProduto.Handle = VendaProdutoDB.GetHandleInsert(conexao);
+                    vendaProduto.ValorUnitario = TextBoxValorUnitario.DecimalValue;
+                    vendaProduto.ValorTotal = TextBoxValorTotal.DecimalValue;
+                    vendaProduto.Quantidade = (decimal)TextBoxQuantidade.DoubleValue;
+                    vendaProduto.Observacao = TextBoxObservacao.Text;
 
-                    inserindo = !ProdutoDB.SetInsereProduto(produto, conexao);
+                    inserindo = !VendaProdutoDB.SetInsereVendaProduto(vendaProduto, conexao);
 
                     PreencherCampos();
                 }
@@ -121,14 +115,14 @@ namespace Vendas.Model
         {
             DialogResult result = MessageBox.Show(
                         null
-                        , $"Deseja excluir o produto " + produto.Nome + "?"
+                        , $"Deseja excluir o produto da venda " + vendaProduto.Handle + "?"
                         , "Produto"
                         , MessageBoxButtons.OKCancel
                         , MessageBoxIcon.Question
                         );
             if (result == DialogResult.OK)
             {
-                bool retorno = ProdutoDB.SetExcluirProduto(produto.Handle, conexao);
+                bool retorno = VendaProdutoDB.SetExcluirVendaProduto(vendaProduto.Handle, conexao);
                 if (retorno)
                 {
                     MessageBox.Show("Sucesso, produto excluído!");
@@ -141,43 +135,52 @@ namespace Vendas.Model
             }
         }
 
-        private void TextBoxCnpjCpf_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private bool VerificarCampos()
         {
             bool Retorno = true;
 
-            if (TextBoxNome.Text == "")
+            if (TextBoxValorUnitario.DecimalValue == 0)
             {
-                TextBoxNome.Focus();
+                TextBoxValorUnitario.Focus();
                 Retorno = false;
             }
 
-            if (TextBoxValor.DecimalValue == 0)
+            if (TextBoxValorTotal.DecimalValue == 0)
             {
-                TextBoxValor.Focus();
+                TextBoxValorTotal.Focus();
                 Retorno = false;
             }
 
-            if (TextBoxCodigoAuxiliar.Text == "")
+            if (TextBoxQuantidade.DoubleValue == 0)
             {
-                TextBoxCodigoAuxiliar.Focus();
-                Retorno = false;
-            }
-
-            if (TextBoxEstoque.DoubleValue == 0)
-            {
-                TextBoxEstoque.Focus();
+                TextBoxQuantidade.Focus();
                 Retorno = false;
             }
 
             return Retorno;
+        }
+
+        private void ComboBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Produto produto = (Produto)ComboBoxProduto.SelectedItem;
+            vendaProduto.Produto = produto.Handle;
+
+            TextBoxValorUnitario.DecimalValue = produto.Valor;
+        }
+
+        private void TextBoxValorUnitario_DecimalValueChanged(object sender, EventArgs e)
+        {
+            TextBoxValorTotal.DecimalValue = (decimal)TextBoxQuantidade.DoubleValue * TextBoxValorUnitario.DecimalValue;
+        }
+
+        private void TextBoxQuantidade_DoubleValueChanged(object sender, EventArgs e)
+        {
+            TextBoxValorTotal.DecimalValue = (decimal)TextBoxQuantidade.DoubleValue * TextBoxValorUnitario.DecimalValue;
+        }
+
+        private void TextBoxValorTotal_DecimalValueChanged(object sender, EventArgs e)
+        {
+            TextBoxValorUnitario.DecimalValue =  TextBoxValorTotal.DecimalValue / (decimal)TextBoxQuantidade.DoubleValue;
         }
     }
 }
