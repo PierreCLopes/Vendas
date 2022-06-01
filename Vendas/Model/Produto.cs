@@ -48,5 +48,11 @@ namespace Vendas.Model
             LogUsuarioCadastro = 0;
             LogUsuarioAlteracao = 0;
         }
+
+        override
+        public string ToString()
+        {
+            return Nome + ' - ' + CodigoAuxiliar;
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vendas.Control;
 
 namespace Vendas.Model
 {
@@ -87,6 +88,12 @@ namespace Vendas.Model
             Status = Model.Status.Encerrado;
             StatusTraducao = "Encerrado";
             StatusData = DateTime.Now;
+        }
+
+        public void Recalcular()
+        {
+            decimal valor = VendaDB.GetValorTotal(conexao, Handle);
+            ValorLiquido = valor;
         }
     }
 }

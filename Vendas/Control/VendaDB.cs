@@ -231,5 +231,30 @@ namespace Vendas.Control
             }
             return retorno;
         }
+
+        public decimal GetValorTotal(NpgsqlConnection conexao, int prVenda)
+        {
+            decimal retorno = 0;
+            try
+            {
+                string vQuery = "SELECT SUM(VALORTOTAL) VALORTOTAL " +
+                                "  FROM VENDAPRODUTO  " +
+                                " WHERE VENDA = " + prVenda.ToString();
+
+                NpgsqlCommand vCommand = new NpgsqlCommand(vQuery, conexao);
+                NpgsqlDataReader DataReader = vCommand.ExecuteReader();
+                if (DataReader.HasRows)
+                {
+                    DataReader.Read();
+                    retorno = (decimal)(DataReader["VALORTOTAL"]);
+                }
+                DataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro de SQL: " + e.Message);
+            }
+            return retorno;
+        }
     }
 }

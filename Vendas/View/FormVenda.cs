@@ -263,7 +263,10 @@ namespace Vendas.View
             FormVendaProduto Form = new FormVendaProduto(conexao, vVendaProduto, usuarioLogado);
             Form.ShowDialog();
 
-            Reacalcular();
+            venda.Recalcular();
+            VendaDB.SetAlteraVenda(venda, conexao);
+            PreencherCampos();
+            AtualizarPermissoes();
         }
     }
 }
