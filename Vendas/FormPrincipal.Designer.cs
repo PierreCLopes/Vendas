@@ -47,13 +47,6 @@
             this.CnpjCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.DataGridViewProduto = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BotaoInserir = new System.Windows.Forms.Button();
             this.DataGridViewVenda = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,12 +55,19 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewProduto = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BotaoInserir = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPessoa)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewVenda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -94,29 +94,30 @@
             // pessoasToolStripMenuItem
             // 
             this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pessoasToolStripMenuItem.Text = "Pessoas";
             this.pessoasToolStripMenuItem.Click += new System.EventHandler(this.pessoasToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtosToolStripMenuItem.Text = "Produtos";
             this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
+            this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
             // DataGridViewUsuario
             // 
@@ -240,71 +241,6 @@
             this.panel1.Size = new System.Drawing.Size(920, 427);
             this.panel1.TabIndex = 1;
             // 
-            // DataGridViewProduto
-            // 
-            this.DataGridViewProduto.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.DataGridViewProduto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DataGridViewProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.Valor,
-            this.Estoque,
-            this.dataGridViewTextBoxColumn8});
-            this.DataGridViewProduto.Location = new System.Drawing.Point(0, 0);
-            this.DataGridViewProduto.MultiSelect = false;
-            this.DataGridViewProduto.Name = "DataGridViewProduto";
-            this.DataGridViewProduto.ReadOnly = true;
-            this.DataGridViewProduto.RowTemplate.Height = 25;
-            this.DataGridViewProduto.Size = new System.Drawing.Size(920, 427);
-            this.DataGridViewProduto.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Handle";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Código";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Nome";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Nome";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "Valor";
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            // 
-            // Estoque
-            // 
-            this.Estoque.DataPropertyName = "Estoque";
-            this.Estoque.HeaderText = "Estoque";
-            this.Estoque.Name = "Estoque";
-            this.Estoque.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "LogDataAlteracao";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Data de alteração";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 130;
-            // 
-            // BotaoInserir
-            // 
-            this.BotaoInserir.Location = new System.Drawing.Point(776, 466);
-            this.BotaoInserir.Name = "BotaoInserir";
-            this.BotaoInserir.Size = new System.Drawing.Size(75, 23);
-            this.BotaoInserir.TabIndex = 3;
-            this.BotaoInserir.Text = "Inserir";
-            this.BotaoInserir.UseVisualStyleBackColor = true;
-            this.BotaoInserir.Click += new System.EventHandler(this.BotaoInserir_Click);
-            // 
             // DataGridViewVenda
             // 
             this.DataGridViewVenda.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -375,6 +311,71 @@
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Width = 130;
             // 
+            // DataGridViewProduto
+            // 
+            this.DataGridViewProduto.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.DataGridViewProduto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DataGridViewProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.Valor,
+            this.Estoque,
+            this.dataGridViewTextBoxColumn8});
+            this.DataGridViewProduto.Location = new System.Drawing.Point(0, 0);
+            this.DataGridViewProduto.MultiSelect = false;
+            this.DataGridViewProduto.Name = "DataGridViewProduto";
+            this.DataGridViewProduto.ReadOnly = true;
+            this.DataGridViewProduto.RowTemplate.Height = 25;
+            this.DataGridViewProduto.Size = new System.Drawing.Size(920, 427);
+            this.DataGridViewProduto.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Handle";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Código";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Nome";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            // 
+            // Estoque
+            // 
+            this.Estoque.DataPropertyName = "Estoque";
+            this.Estoque.HeaderText = "Estoque";
+            this.Estoque.Name = "Estoque";
+            this.Estoque.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "LogDataAlteracao";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Data de alteração";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 130;
+            // 
+            // BotaoInserir
+            // 
+            this.BotaoInserir.Location = new System.Drawing.Point(776, 466);
+            this.BotaoInserir.Name = "BotaoInserir";
+            this.BotaoInserir.Size = new System.Drawing.Size(75, 23);
+            this.BotaoInserir.TabIndex = 3;
+            this.BotaoInserir.Text = "Inserir";
+            this.BotaoInserir.UseVisualStyleBackColor = true;
+            this.BotaoInserir.Click += new System.EventHandler(this.BotaoInserir_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -394,8 +395,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPessoa)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewVenda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

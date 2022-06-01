@@ -136,6 +136,12 @@ namespace Vendas
                 FormProduto Form = new FormProduto(conexao, vProduto, usuarioLogado);
                 Form.ShowDialog();
             }
+            else if (DataGridViewVenda.Visible)
+            {
+                Venda vVenda = new Venda();
+                FormVenda Form = new FormVenda(conexao, vVenda, usuarioLogado);
+                Form.ShowDialog();
+            }
         }
 
         private void pessoasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,6 +152,11 @@ namespace Vendas
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AtualizaTelaProduto();
+        }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AtualizaTelaVenda();
         }
     }
 }

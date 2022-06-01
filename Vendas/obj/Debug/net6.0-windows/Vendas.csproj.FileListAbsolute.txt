@@ -36,3 +36,4 @@ C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\bin\Debug\net6.0-windows\Syncfusi
 C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\bin\Debug\net6.0-windows\Xamarin.Forms.Core.dll
 C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\bin\Debug\net6.0-windows\Xamarin.Forms.Platform.dll
 C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\bin\Debug\net6.0-windows\Xamarin.Forms.Xaml.dll
+C:\Users\Pierre\Documents\GitHub\Vendas\Vendas\obj\Debug\net6.0-windows\Vendas.View.FormVenda.resources

@@ -60,5 +60,33 @@ namespace Vendas.Model
             LogUsuarioCadastro = 0;
             LogUsuarioAlteracao = 0;
         }
+
+        public void Liberar()
+        {
+            Status = Model.Status.AgEntrega;
+            StatusTraducao = "Ag. Entrega";
+            StatusData = DateTime.Now;
+        }
+
+        public void Voltar()
+        {
+            Status = Model.Status.AgModificacao;
+            StatusTraducao = "Ag. Modificações";
+            StatusData = DateTime.Now;
+        }
+
+        public void Cancelar()
+        {
+            Status = Model.Status.Cancelado;
+            StatusTraducao = "Cancelado";
+            StatusData = DateTime.Now;
+        }
+
+        public void Entregar()
+        {
+            Status = Model.Status.Encerrado;
+            StatusTraducao = "Encerrado";
+            StatusData = DateTime.Now;
+        }
     }
 }

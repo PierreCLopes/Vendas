@@ -26,5 +26,16 @@ namespace Vendas.Model
             ValorTotal = valorTotal;
             Venda = venda;
         }
+
+        public VendaProduto(int venda)
+        {
+            Handle = 0;
+            Observacao = "";
+            Produto = 0;
+            Quantidade = 0;
+            ValorUnitario = 0;
+            ValorTotal = 0;
+            Venda = venda;
+        }
     }
 }

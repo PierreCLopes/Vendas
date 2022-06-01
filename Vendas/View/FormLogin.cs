@@ -35,7 +35,6 @@ namespace Vendas.View
 
                 if (usuario.Logado)
                 {
-                    MessageBox.Show("Usuario logado");
                     Close();
                 }
                 else

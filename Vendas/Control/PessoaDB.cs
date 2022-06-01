@@ -10,7 +10,7 @@ namespace Vendas.Control
 {
     public class PessoaDB
     {
-        public static List<Pessoa> GetPessoas(NpgsqlConnection conexao)
+        public static List<Pessoa> GetPessoas(NpgsqlConnection conexao, int prStatus = 0)
         {
             List<Pessoa> Lista = new List<Pessoa>();
             try
@@ -19,6 +19,12 @@ namespace Vendas.Control
                                 "       B.NOME STATUSNOME " +
                                 " FROM PESSOA A " +
                                 "INNER JOIN STATUS B ON B.HANDLE = A.STATUS ";
+
+                if (prStatus != 0)
+                {
+                    vQuery += " AND A.STATUS = " + prStatus.ToString();
+                }
+
                 NpgsqlCommand vCommand = new NpgsqlCommand(vQuery, conexao);
                 NpgsqlDataReader DataReader = vCommand.ExecuteReader();
                 while (DataReader.Read())

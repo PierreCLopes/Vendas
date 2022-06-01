@@ -74,5 +74,10 @@ namespace Vendas.Model
             StatusTraducao = "Cancelado";
             StatusData = DateTime.Now;
         }
+
+        override public string ToString()
+        {
+            return Nome + " - " + CnpjCpf;
+        }
     }
 }
